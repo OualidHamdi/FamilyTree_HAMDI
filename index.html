@@ -235,7 +235,7 @@ body {
 		
 		<SCRIPT language="JavaScript"><!--
 		var staticMode=true;
-		var hideSidebar=false;
+		var hideSidebar=true;
 		var noCentering=false;
 		var defaultZoom=0.5;
 		var defaultDetail=null;
@@ -1248,52 +1248,54 @@ s+="<";
 return s;
 }
 function FDN(p,mn,sn,sf,bn,ah,ni,ti,su){
-if(!p){
-return _t("Unknown");
-}
-var fn=p.p||"";
-var n=fn;
-if(!mn){
-var fns=fn.trim().split(" ");
-n=fns[0]||"";
-}
-if(ni&&p.N){
-n+=(n?" ":"")+"\""+p.N+"\"";
-}
-if(n&&sn){
-var an=bn?p.q:p.l;
-if(!an){
-an=bn?p.l:p.q;
-}else{
-if(sn>=2){
-var cn=bn?p.l:p.q;
-if(cn&&(cn!=an)){
-an+="/"+cn;
-}
-}
-}
-if(an){
-if(n){
-if(sf){
-n=an+" "+n;
-}else{
-n+=" "+an;
-}
-}else{
-n=an;
-}
-}
-}
-if(n&&ti&&p.T){
-n=p.T+" "+n;
-}
-if(n&&su&&p.J){
-n+=" "+p.J;
-}
-if((!n)&&ah){
-n=p.h;
-}
-return n;
+if (!p) {
+    return _t("Unknown");
+  }
+
+  var n = p.p || ""; // now always use full name (prenom + nom)
+
+  if (ni && p.N) {
+    n += (n ? " " : "") + "\"" + p.N + "\"";
+  }
+
+  if (n && sn) {
+    var an = bn ? p.q : p.l;
+    if (!an) {
+      an = bn ? p.l : p.q;
+    } else {
+      if (sn >= 2) {
+        var cn = bn ? p.l : p.q;
+        if (cn && (cn != an)) {
+          an += "/" + cn;
+        }
+      }
+    }
+    if (an) {
+      if (n) {
+        if (sf) {
+          n = an + " " + n;
+        } else {
+          n += " " + an;
+        }
+      } else {
+        n = an;
+      }
+    }
+  }
+
+  if (n && ti && p.T) {
+    n = p.T + " " + n;
+  }
+
+  if (n && su && p.J) {
+    n += " " + p.J;
+  }
+
+  if ((!n) && ah) {
+    n = p.h;
+  }
+
+  return n;
 }
 function FIT(t,g){
 if(t=="b"){
@@ -7293,17 +7295,26 @@ return false;
 </script>
 		
 			</HEAD>
-	
+
+
+
 	<BODY CLASS="light" STYLE="overflow:hidden;" onLoad="PL();" onResize="EPR();">
 		<TABLE WIDTH="100%" HEIGHT="100%" CELLSPACING=0 CELLPADDING=0>
 
 
+				  
+			
 	
 			<TR HEIGHT="8">
 				<TD STYLE="border-bottom:solid #666666 1px; padding:8px;" VALIGN="middle">
 					<FORM NAME="topform" ACTION="./" METHOD="POST">
 						<TABLE WIDTH="100%" HEIGHT="100%" CELLSPACING=0 CELLPADDING=0><TR VALIGN="middle">
-							<TD NOWRAP WIDTH="5%"><FONT STYLE="font-size:28px;">		<SPAN ID="lfamilyname">Hamdi</SPAN>&nbsp;<SPAN ID="lfamilyinfo"></SPAN> <SPAN ID="lfamilylabels"></SPAN>
+							  <p style="right: 0;font-size: 17px;position: absolute;text-align: end;"><span><strong>سيدي أحمد الغريب</strong></span>
+  هاجر من الشام هو وأخوه ، استقر أخوه في مدينة تلمسان، الجزائر. 
+<br>
+أما سيدي أحمد الغريب، فاستقر في مدينة وجدة، المغرب. توفي ودفن وسط مدينة وجدة، قرب دار السبتي.</p>
+							<TD NOWRAP WIDTH="5%"><FONT STYLE="font-size:28px;">		<SPAN ID="lfamilyname">Hamdi</SPAN>
+								&nbsp;<SPAN ID="lfamilyinfo"></SPAN> <SPAN ID="lfamilylabels"></SPAN>
 		
 		<IFRAME ID="backframe" WIDTH="1" HEIGHT="1" FRAMEBORDER="0" SCROLLING="no"></IFRAME>
 </FONT></TD>
@@ -8568,8 +8579,9 @@ Birth date:         2022
 					<TABLE STYLE="margin:4px auto;" CELLPADDING="4"><TR VALIGN="top">
 						<TD NOWRAP>
 							<INPUT ID="detail_0p" TYPE="checkbox" onChange="ECD(this);"> <LABEL FOR="detail_0p">Name</LABEL>
-							<br/>&nbsp; &nbsp; <INPUT ID="detail_pm" TYPE="checkbox" onChange="ECD(this);"> <LABEL FOR="detail_pm">Middle names</LABEL>
-							<br/>&nbsp; &nbsp; <INPUT ID="detail_N" TYPE="checkbox" onChange="ECD(this);"> <LABEL FOR="detail_N">Nickname</LABEL>
+							<br/>&nbsp; &nbsp; <input id="detail_pm" type="checkbox" onchange="ECD(this);" checked> <label for="detail_pm">Middle names</label>
+							<br/>&nbsp; &nbsp; <input id="detail_N" type="checkbox" onchange="ECD(this);" checked> <label for="detail_N">Nickname</label>
+
 							<br/>&nbsp; &nbsp; <INPUT ID="detail_TJ" TYPE="checkbox" onChange="ECD(this);"> <LABEL FOR="detail_TJ">Title + Suffix</LABEL>
 							<br/>&nbsp; &nbsp; <INPUT ID="detail_0lq" TYPE="checkbox" onChange="ECD(this);"> <LABEL FOR="detail_0lq">Surname</LABEL>
 							<br/><INPUT ID="detail_r" TYPE="checkbox" onChange="ECD(this);"> <LABEL FOR="detail_r">Photo</LABEL>
