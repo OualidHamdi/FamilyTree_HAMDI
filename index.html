@@ -2830,8 +2830,8 @@ SC("widthfactor",GV("showwidth"));
 ERI();
 }
 function ERW(){
-SV("showwidth",1);
-SC("widthfactor",1);
+SV("showwidth",2);
+SC("widthfactor",2);
 ERF();
 }
 function ECT(){
@@ -7309,14 +7309,16 @@ return false;
 				<TD STYLE="border-bottom:solid #666666 1px; padding:8px;" VALIGN="middle">
 					<FORM NAME="topform" ACTION="./" METHOD="POST">
 						<TABLE WIDTH="100%" HEIGHT="100%" CELLSPACING=0 CELLPADDING=0><TR VALIGN="middle">
-							  <p style="right: 0;font-size: 17px;position: absolute;text-align: end;"><span><strong>سيدي أحمد الغريب</strong></span>
-  هاجر من الشام هو وأخوه ، استقر أخوه في مدينة تلمسان، الجزائر. 
-<br>
-أما سيدي أحمد الغريب، فاستقر في مدينة وجدة، المغرب. توفي ودفن وسط مدينة وجدة، قرب دار السبتي.</p>
+							  
 							<TD NOWRAP WIDTH="5%"><FONT STYLE="font-size:28px;">		<SPAN ID="lfamilyname">Hamdi</SPAN>
 								&nbsp;<SPAN ID="lfamilyinfo"></SPAN> <SPAN ID="lfamilylabels"></SPAN>
-		
-		<IFRAME ID="backframe" WIDTH="1" HEIGHT="1" FRAMEBORDER="0" SCROLLING="no"></IFRAME>
+		<p style="right: 0;font-size: 17px;position: absolute;text-align: end;"><span><strong>سيدي أحمد الغريب</strong></span>
+  هاجر من الشام هو وأخوه ، استقر أخوه في مدينة تلمسان، الجزائر. 
+<br>
+أما سيدي أحمد الغريب، فاستقر في مدينة وجدة، المغرب. <br>
+توفي ودفن وسط مدينة وجدة، قرب دار السبتي.</p>
+<br>
+		<IFRAME ID="backframe" WIDTH="1" HEIGHT="40" FRAMEBORDER="0" SCROLLING="no"></IFRAME>
 </FONT></TD>
 <TD NOWRAP STYLE="text-align:right;" WIDTH="5%">
 
@@ -8627,7 +8629,7 @@ Birth date:         2022
 								<a href="#" class="creset" onClick="ERC('living', '#000000'); return false;">reset</a>
 							<br/><SPAN CLASS="cleft">Deceased text:</SPAN> <INPUT ID="colordeceased" CLASS="cright" TYPE="color" onInput="ECR(this);">
 								<a href="#" class="creset" onClick="ERC('deceased', '#777777'); return false;">reset</a>
-							<br/><SPAN CLASS="cleft">Box width:</SPAN> <INPUT ID="showwidth" TYPE="range" MIN="0.5" MAX="2.0" STEP="0.001" CLASS="cright" onInput="ECW();" onChange="ECW();">
+							<br/><SPAN CLASS="cleft">Box width:</SPAN> <INPUT ID="showwidth" TYPE="range" MIN="2.0" MAX="2.0" STEP="0.001" CLASS="cright" onInput="ECW();" onChange="ECW();">
 								<a href="#" class="creset" onClick="ERW(); return false;">reset</a>
 							<br/><SPAN CLASS="cleft">Text size:</SPAN> <INPUT ID="textsize" TYPE="range" MIN="0.5" MAX="2.0" STEP="0.001" CLASS="cright" onInput="ECT();" onChange="ECT();">
 								<a href="#" class="creset" onClick="ERT(); return false;">reset</a>
